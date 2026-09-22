@@ -1,0 +1,385 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>KeyFrame Boss — Seu servidor. Sua operação.</title>
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#050706;
+  --bg2:#080c09;
+  --panel:#0c1210;
+  --panel2:#101815;
+  --line:rgba(104,255,147,.15);
+  --line-strong:rgba(104,255,147,.32);
+  --text:#f2f7f3;
+  --muted:#aab8af;
+  --green:#63ff91;
+  --green2:#27e86b;
+  --lime:#b7ff24;
+  --shadow:0 24px 70px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(40,255,103,.09),transparent 30%),
+    radial-gradient(circle at 90% 22%,rgba(137,255,20,.07),transparent 28%),
+    linear-gradient(180deg,var(--bg),#030504 72%);
+  color:var(--text);
+  font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(99,255,145,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(99,255,145,.06) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(18px);
+  background:rgba(3,5,4,.72);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:42px;height:42px;object-fit:cover;border-radius:12px;box-shadow:0 0 28px rgba(99,255,145,.18)}
+.brand-copy strong{display:block;font-size:15px;letter-spacing:-.02em}
+.brand-copy span{display:block;font-size:9px;color:var(--green);letter-spacing:.22em;font-weight:800;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;color:var(--muted);font-weight:700}
+.nav-links a{text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+  padding:10px 15px;border-radius:10px;background:var(--green);color:#031008!important;
+  box-shadow:0 8px 28px rgba(99,255,145,.16);
+}
+.hero{padding:78px 0 52px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
+h1{font-size:clamp(50px,7vw,84px);line-height:.94;letter-spacing:-.065em;margin:18px 0 22px}
+h1 .accent{color:var(--green);text-shadow:0 0 34px rgba(99,255,145,.12)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 19px;border-radius:12px;text-decoration:none;font-weight:900;font-size:13px;
+  border:1px solid rgba(255,255,255,.08);transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#031008;border-color:var(--green);box-shadow:0 12px 34px rgba(99,255,145,.17)}
+.btn-secondary{background:rgba(255,255,255,.025);color:var(--text)}
+.btn-secondary:hover{border-color:var(--line-strong)}
+.hero-art{
+  position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:#050805;box-shadow:var(--shadow);
+}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,255,145,.07),transparent 38%,rgba(183,255,36,.06));pointer-events:none}
+.hero-art img{display:block;width:100%;aspect-ratio:2.5/1;object-fit:cover}
+.hero-badge{
+  position:absolute;left:18px;bottom:18px;padding:9px 12px;border-radius:10px;
+  background:rgba(3,7,4,.78);border:1px solid var(--line);backdrop-filter:blur(12px);
+  font-size:11px;font-weight:800;color:#dfffe8;
+}
+.section{padding:74px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:26px}
+.kicker{color:var(--green);font-size:10px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 0}
+.section-head p{max-width:480px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{
+  position:relative;overflow:hidden;min-height:190px;padding:24px;border-radius:18px;
+  background:linear-gradient(145deg,rgba(16,24,21,.96),rgba(8,12,10,.96));
+  border:1px solid var(--line);box-shadow:0 18px 55px rgba(0,0,0,.18);
+}
+.card:before{
+  content:"";position:absolute;width:130px;height:130px;right:-65px;top:-65px;border-radius:50%;
+  background:rgba(99,255,145,.08);filter:blur(10px)
+}
+.card-num{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.14em}
+.card h3{margin:18px 0 7px;font-size:20px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.showcase{
+  display:block
+}
+.character{
+  min-height:520px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;position:relative
+}
+.character img{width:100%;height:100%;object-fit:cover;display:block}
+.character:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.48))}
+.showcase-panel{
+  padding:34px;border-radius:24px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,22,18,.97),rgba(6,9,8,.97));display:flex;flex-direction:column;justify-content:center
+}
+.showcase-panel p{color:var(--muted);max-width:620px}
+.plans-intro{max-width:720px;margin-bottom:26px}
+.plans-intro p{color:var(--muted);margin:10px 0 0}
+.plan-wrap{border:1px solid var(--line);border-radius:24px;overflow:hidden;background:linear-gradient(145deg,rgba(14,22,18,.97),rgba(6,9,8,.97));box-shadow:var(--shadow)}
+.plan-table{width:100%;border-collapse:collapse}
+.plan-table th,.plan-table td{padding:15px 18px;border-bottom:1px solid rgba(255,255,255,.055);text-align:left}
+.plan-table th{font-size:13px;color:#dfffe8;font-weight:900;background:rgba(99,255,145,.025)}
+.plan-table td{font-size:14px;color:#d6dfda}
+.plan-table th:first-child,.plan-table td:first-child{width:48%}
+.plan-table th:not(:first-child),.plan-table td:not(:first-child){text-align:center}
+.plan-table tr:last-child td{border-bottom:0}
+.plan-name{display:inline-flex;align-items:center;gap:8px}
+.plan-dot{width:10px;height:10px;border-radius:50%;display:inline-block;background:var(--green);box-shadow:0 0 14px rgba(99,255,145,.35)}
+.plan-diamond{font-size:14px}
+.plan-value{font-weight:900;color:#f2f7f3}
+.plan-muted{color:#aab8af}
+.plan-no{color:#ff5b91;font-size:17px;font-weight:900}
+.plan-yes{color:#63ff91;font-size:17px;font-weight:900}
+.plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:15px}
+.plan-card{padding:24px;border-radius:18px;border:1px solid var(--line);background:linear-gradient(145deg,rgba(16,24,21,.96),rgba(8,12,10,.96))}
+.plan-card.complete{border-color:rgba(99,255,145,.28)}
+.plan-card-top{display:flex;align-items:center;justify-content:space-between;gap:15px}
+.plan-card h3{margin:0;font-size:23px}
+.plan-price{font-size:14px;color:var(--muted);margin:10px 0 18px}
+.plan-price strong{color:var(--text);font-size:21px}
+.plan-list{display:grid;gap:9px;margin:0;padding:0;list-style:none}
+.plan-list li{color:#c7d2cb;font-size:13px}
+.plan-list li span{color:var(--green);font-weight:900;margin-right:7px}
+@media(max-width:650px){
+  .plan-wrap{overflow-x:auto}
+  .plan-table{min-width:650px}
+  .plan-table th,.plan-table td{padding:13px 14px}
+  .plan-cards{grid-template-columns:1fr}
+}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}
+.check{padding:13px 14px;border:1px solid rgba(99,255,145,.1);background:rgba(99,255,145,.035);border-radius:12px;font-size:13px;font-weight:800}
+.check span{color:var(--green);margin-right:7px}
+.banner{
+  border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;box-shadow:var(--shadow)
+}
+.banner img{display:block;width:100%;height:auto}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.doc{
+  padding:27px;border-radius:18px;background:linear-gradient(145deg,rgba(15,22,19,.96),rgba(7,10,9,.96));
+  border:1px solid var(--line);text-decoration:none;transition:.2s
+}
+.doc:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.doc-label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.15em}
+.doc h3{margin:14px 0 7px;font-size:22px}
+.doc p{color:var(--muted);margin:0 0 18px;font-size:14px}
+.doc-link{font-size:13px;font-weight:900;color:#dfffe8}
+.final{
+  text-align:center;padding:82px 20px 90px;
+  position:relative
+}
+.final:before{content:"";position:absolute;width:440px;height:220px;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(99,255,145,.08);filter:blur(70px);pointer-events:none}
+.final>*{position:relative}
+.final h2{max-width:720px;margin:8px auto 13px}
+.final p{color:var(--muted);max-width:570px;margin:0 auto 25px}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:26px 0 32px;color:#7f8d85;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-links{display:flex;gap:18px}.footer-links a{text-decoration:none}.footer-links a:hover{color:var(--green)}
+.legal{
+  padding:66px 0 90px
+}
+.legal-top{margin-bottom:26px}
+.legal-top a{color:var(--green);text-decoration:none;font-size:13px;font-weight:800}
+.legal-meta{color:#77857d;font-size:13px;margin-top:9px}
+.legal-card{
+  padding:34px;border-radius:22px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,21,18,.97),rgba(7,10,9,.97));
+  box-shadow:var(--shadow)
+}
+.legal-card h2{font-size:23px;margin:34px 0 10px}
+.legal-card h2:first-of-type{margin-top:0}
+.legal-card p,.legal-card li{color:#c2ccc6}
+.legal-card a{color:var(--green)}
+.legal-card footer{margin-top:42px}
+@media(max-width:900px){
+  .hero-grid{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .character{min-height:400px}
+}
+@media(max-width:650px){
+  .container{width:min(100% - 28px,1120px)}
+  .nav-inner{height:70px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding-top:50px}
+  h1{font-size:51px}
+  .hero p{font-size:16px}
+  .cards,.docs,.checks{grid-template-columns:1fr}
+  .section{padding:55px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .character{min-height:auto}
+  .footer-inner{display:block}
+  .footer-links{margin-top:10px}
+  .legal-card{padding:22px}
+}
+</style>
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+<header class="nav">
+  <div class="container nav-inner">
+    <a class="brand" href="index.html">
+      <img src="assets/logo-bot.png" alt="KeyFrame Boss">
+      <span class="brand-copy"><strong>KeyFrame Boss</strong><span>OFICIAL</span></span>
+    </a>
+    <nav class="nav-links">
+      <a href="#recursos">Recursos</a>
+      <a href="funcoes.html">Funções</a>
+      <a href="#planos">Planos</a>
+      <a href="#documentos">Documentos</a>
+      <a class="nav-cta" href="https://discord.com/oauth2/authorize?client_id=1536520840546615467&scope=bot%20applications.commands&integration_type=0" target="_blank" rel="noopener">Adicionar ao Discord</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow"><span class="dot"></span> KeyFrame Boss</div>
+      <h1>Seu servidor.<br><span class="accent">Sua operação.</span></h1>
+      <p>Tudo o que você precisa saber sobre o KeyFrame Boss.</p>
+      <div class="actions">
+        <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1536520840546615467&scope=bot%20applications.commands&integration_type=0" target="_blank" rel="noopener">Adicionar ao Discord ↗</a>
+        <a class="btn btn-secondary" href="#recursos">Conhecer o bot ↓</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <img src="assets/banner-bot.png" alt="KeyFrame Boss">
+      <div class="hero-badge">Automação • Loja • Atendimento • Gestão</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="recursos">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">01 · Recursos</div><h2>Feito para organizar sua operação.</h2></div>
+      <p>Ferramentas reunidas em um só bot para deixar o servidor mais organizado e o atendimento mais simples.</p>
+    </div>
+    <div class="cards">
+      <article class="card"><div class="card-num">01</div><h3>Atendimento & Tickets</h3><p>Organize atendimentos, equipes, categorias e fluxos de suporte diretamente no Discord.</p></article>
+      <article class="card"><div class="card-num">02</div><h3>Loja & Stock</h3><p>Apresente produtos, organize estoque e conduza o cliente até o atendimento de compra.</p></article>
+      <article class="card"><div class="card-num">03</div><h3>Vendas & Ranking</h3><p>Registre vendas e acompanhe os resultados da equipe de forma centralizada.</p></article>
+      <article class="card"><div class="card-num">04</div><h3>Gastos & Recompensas</h3><p>Controle gastos e configure níveis, cargos e recompensas para seus clientes.</p></article>
+      <article class="card"><div class="card-num">05</div><h3>Ficha do Cliente</h3><p>Reúna informações importantes do cliente em uma visão rápida dentro do servidor.</p></article>
+      <article class="card"><div class="card-num">06</div><h3>Painéis Personalizados</h3><p>Configure aparência, embeds, servidores privados, suporte e outros recursos pelo painel.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="planos">
+  <div class="container">
+    <div class="section-head plans-intro">
+      <div><div class="kicker">02 · Planos</div><h2>Escolha o plano da sua operação.</h2></div>
+      <p>O KeyFrame Boss possui dois planos. Os recursos e limites são aplicados de acordo com a licença ativa do servidor.</p>
+    </div>
+
+    <div class="plan-wrap">
+      <table class="plan-table">
+        <thead>
+          <tr>
+            <th>Recurso</th>
+            <th><span class="plan-name"><span class="plan-dot"></span>Limitado</span></th>
+            <th><span class="plan-name"><span class="plan-diamond">💎</span>Completo</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tickets</td><td class="plan-value">∞</td><td class="plan-value">∞</td></tr>
+          <tr><td>Categorias Stock</td><td class="plan-value">5</td><td class="plan-muted">Sem limite de plano</td></tr>
+          <tr><td>Produtos Stock</td><td class="plan-value">100</td><td class="plan-muted">Sem limite de plano</td></tr>
+          <tr><td>Registro de vendas</td><td class="plan-value">∞</td><td class="plan-value">∞</td></tr>
+          <tr><td>Ranking</td><td class="plan-value">∞</td><td class="plan-value">∞</td></tr>
+          <tr><td>Ficha</td><td class="plan-value">∞</td><td class="plan-value">∞</td></tr>
+          <tr><td>Gastos &amp; Recompensas</td><td class="plan-value">5 recompensas</td><td class="plan-muted">Sem limite de plano</td></tr>
+          <tr><td>Servidores privados</td><td class="plan-value">3</td><td class="plan-muted">Sem limite de plano</td></tr>
+          <tr><td>Anúncios</td><td class="plan-value">10/mês</td><td class="plan-value">∞</td></tr>
+          <tr><td>Nome/logo do bot</td><td class="plan-no">✕</td><td class="plan-yes">✓</td></tr>
+          <tr><td>Personalização dos painéis</td><td class="plan-value">Básica</td><td class="plan-value">Completa</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="plan-cards">
+      <article class="plan-card">
+        <div class="plan-card-top"><h3><span class="plan-dot"></span> Limitado</h3><span class="plan-muted">Entrada</span></div>
+        <div class="plan-price"><strong>R$ 15,50</strong>/mês · <strong>R$ 150,00</strong>/ano</div>
+        <ul class="plan-list">
+          <li><span>✓</span>5 categorias e até 100 produtos no Stock</li>
+          <li><span>✓</span>Até 5 recompensas configuráveis</li>
+          <li><span>✓</span>3 servidores privados</li>
+          <li><span>✓</span>10 anúncios por mês</li>
+          <li><span>✓</span>Painéis com personalização básica</li>
+        </ul>
+      </article>
+      <article class="plan-card complete">
+        <div class="plan-card-top"><h3>💎 Completo</h3><span class="plan-muted">Premium</span></div>
+        <div class="plan-price"><strong>R$ 35,00</strong>/mês · <strong>R$ 360,00</strong>/ano</div>
+        <ul class="plan-list">
+          <li><span>✓</span>Stock sem limite de categorias ou produtos</li>
+          <li><span>✓</span>Gastos &amp; Recompensas sem limite</li>
+          <li><span>✓</span>Servidores privados e anúncios sem limite</li>
+          <li><span>✓</span>Nome e logo do bot personalizados</li>
+          <li><span>✓</span>Painéis com personalização completa</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="banner"><img src="assets/banner-suporte.png" alt="KeyFrame Boss — suporte"></div>
+  </div>
+</section>
+
+<section class="section" id="funcoes-destaque">
+  <div class="container">
+    <div class="showcase-panel" style="text-align:center;align-items:center;">
+      <div class="kicker">COMANDOS DO KEYFRAME BOSS</div>
+      <h2>Quer saber exatamente o que cada comando faz?</h2>
+      <p>Veja os comandos por categoria, entenda para que cada um serve e confira exemplos visuais de como eles funcionam dentro do Discord.</p>
+      <div class="actions"><a class="btn btn-primary" href="funcoes.html">Ver funções e comandos →</a></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="documentos">
+  <div class="container">
+    <div class="section-head">
+      <div><div class="kicker">03 · Informações</div><h2>Termos, privacidade e informações importantes.</h2></div>
+      <p>Consulte os documentos do KeyFrame Boss sempre que precisar.</p>
+    </div>
+    <div class="docs">
+      <a class="doc" href="termos.html"><div class="doc-label">01 · SERVIÇO</div><h3>Termos de Serviço</h3><p>Regras de utilização, licenças, pagamentos, disponibilidade, atualizações e demais condições do serviço.</p><div class="doc-link">Abrir documento →</div></a>
+      <a class="doc" href="privacidade.html"><div class="doc-label">02 · DADOS</div><h3>Política de Privacidade</h3><p>Informações sobre dados processados, tickets, OCR, armazenamento, segurança, retenção e direitos do titular.</p><div class="doc-link">Abrir documento →</div></a>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="container">
+    <div class="kicker">KeyFrame Boss</div>
+    <h2>Pronto para levar o KeyFrame Boss para o seu servidor?</h2>
+    <p>Adicione o bot ao Discord e comece a configurar sua operação.</p>
+    <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1536520840546615467&scope=bot%20applications.commands&integration_type=0" target="_blank" rel="noopener">Adicionar ao Discord ↗</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footer-inner">
+    <div>KeyFrame Boss · <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a></div>
+    <div class="footer-links"><a href="termos.html">Termos</a><a href="privacidade.html">Privacidade</a></div>
+  </div>
+</footer>
+</body>
+</html>
