@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Política de Privacidade — KeyFrame Boss</title><style>
+:root{
+  color-scheme:dark;
+  --bg:#050706;
+  --bg2:#080c09;
+  --panel:#0c1210;
+  --panel2:#101815;
+  --line:rgba(104,255,147,.15);
+  --line-strong:rgba(104,255,147,.32);
+  --text:#f2f7f3;
+  --muted:#aab8af;
+  --green:#63ff91;
+  --green2:#27e86b;
+  --lime:#b7ff24;
+  --shadow:0 24px 70px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(40,255,103,.09),transparent 30%),
+    radial-gradient(circle at 90% 22%,rgba(137,255,20,.07),transparent 28%),
+    linear-gradient(180deg,var(--bg),#030504 72%);
+  color:var(--text);
+  font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(99,255,145,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(99,255,145,.06) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(18px);
+  background:rgba(3,5,4,.72);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:42px;height:42px;object-fit:cover;border-radius:12px;box-shadow:0 0 28px rgba(99,255,145,.18)}
+.brand-copy strong{display:block;font-size:15px;letter-spacing:-.02em}
+.brand-copy span{display:block;font-size:9px;color:var(--green);letter-spacing:.22em;font-weight:800;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;color:var(--muted);font-weight:700}
+.nav-links a{text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+  padding:10px 15px;border-radius:10px;background:var(--green);color:#031008!important;
+  box-shadow:0 8px 28px rgba(99,255,145,.16);
+}
+.hero{padding:78px 0 52px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
+h1{font-size:clamp(50px,7vw,84px);line-height:.94;letter-spacing:-.065em;margin:18px 0 22px}
+h1 .accent{color:var(--green);text-shadow:0 0 34px rgba(99,255,145,.12)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 19px;border-radius:12px;text-decoration:none;font-weight:900;font-size:13px;
+  border:1px solid rgba(255,255,255,.08);transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#031008;border-color:var(--green);box-shadow:0 12px 34px rgba(99,255,145,.17)}
+.btn-secondary{background:rgba(255,255,255,.025);color:var(--text)}
+.btn-secondary:hover{border-color:var(--line-strong)}
+.hero-art{
+  position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:#050805;box-shadow:var(--shadow);
+}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,255,145,.07),transparent 38%,rgba(183,255,36,.06));pointer-events:none}
+.hero-art img{display:block;width:100%;aspect-ratio:2.5/1;object-fit:cover}
+.hero-badge{
+  position:absolute;left:18px;bottom:18px;padding:9px 12px;border-radius:10px;
+  background:rgba(3,7,4,.78);border:1px solid var(--line);backdrop-filter:blur(12px);
+  font-size:11px;font-weight:800;color:#dfffe8;
+}
+.section{padding:74px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:26px}
+.kicker{color:var(--green);font-size:10px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 0}
+.section-head p{max-width:480px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{
+  position:relative;overflow:hidden;min-height:190px;padding:24px;border-radius:18px;
+  background:linear-gradient(145deg,rgba(16,24,21,.96),rgba(8,12,10,.96));
+  border:1px solid var(--line);box-shadow:0 18px 55px rgba(0,0,0,.18);
+}
+.card:before{
+  content:"";position:absolute;width:130px;height:130px;right:-65px;top:-65px;border-radius:50%;
+  background:rgba(99,255,145,.08);filter:blur(10px)
+}
+.card-num{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.14em}
+.card h3{margin:18px 0 7px;font-size:20px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.showcase{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:stretch
+}
+.character{
+  min-height:520px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;position:relative
+}
+.character img{width:100%;height:100%;object-fit:cover;display:block}
+.character:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.48))}
+.showcase-panel{
+  padding:34px;border-radius:24px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,22,18,.97),rgba(6,9,8,.97));display:flex;flex-direction:column;justify-content:center
+}
+.showcase-panel p{color:var(--muted);max-width:620px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}
+.check{padding:13px 14px;border:1px solid rgba(99,255,145,.1);background:rgba(99,255,145,.035);border-radius:12px;font-size:13px;font-weight:800}
+.check span{color:var(--green);margin-right:7px}
+.banner{
+  border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;box-shadow:var(--shadow)
+}
+.banner img{display:block;width:100%;height:auto}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.doc{
+  padding:27px;border-radius:18px;background:linear-gradient(145deg,rgba(15,22,19,.96),rgba(7,10,9,.96));
+  border:1px solid var(--line);text-decoration:none;transition:.2s
+}
+.doc:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.doc-label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.15em}
+.doc h3{margin:14px 0 7px;font-size:22px}
+.doc p{color:var(--muted);margin:0 0 18px;font-size:14px}
+.doc-link{font-size:13px;font-weight:900;color:#dfffe8}
+.final{
+  text-align:center;padding:82px 20px 90px;
+  position:relative
+}
+.final:before{content:"";position:absolute;width:440px;height:220px;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(99,255,145,.08);filter:blur(70px);pointer-events:none}
+.final>*{position:relative}
+.final h2{max-width:720px;margin:8px auto 13px}
+.final p{color:var(--muted);max-width:570px;margin:0 auto 25px}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:26px 0 32px;color:#7f8d85;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-links{display:flex;gap:18px}.footer-links a{text-decoration:none}.footer-links a:hover{color:var(--green)}
+.legal{
+  padding:66px 0 90px
+}
+.legal-top{margin-bottom:26px}
+.legal-top a{color:var(--green);text-decoration:none;font-size:13px;font-weight:800}
+.legal-meta{color:#77857d;font-size:13px;margin-top:9px}
+.legal-card{
+  padding:34px;border-radius:22px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,21,18,.97),rgba(7,10,9,.97));
+  box-shadow:var(--shadow)
+}
+.legal-card h2{font-size:23px;margin:34px 0 10px}
+.legal-card h2:first-of-type{margin-top:0}
+.legal-card p,.legal-card li{color:#c2ccc6}
+.legal-card a{color:var(--green)}
+.legal-card footer{margin-top:42px}
+@media(max-width:900px){
+  .hero-grid,.showcase{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .character{min-height:400px}
+}
+@media(max-width:650px){
+  .container{width:min(100% - 28px,1120px)}
+  .nav-inner{height:70px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding-top:50px}
+  h1{font-size:51px}
+  .hero p{font-size:16px}
+  .cards,.docs,.checks{grid-template-columns:1fr}
+  .section{padding:55px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .character{min-height:auto}
+  .footer-inner{display:block}
+  .footer-links{margin-top:10px}
+  .legal-card{padding:22px}
+}
+</style>  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+<a class="brand" href="index.html"><img src="assets/logo-bot.png" alt="KeyFrame Boss"><span class="brand-copy"><strong>KeyFrame Boss</strong><span>OFICIAL</span></span></a>
+<nav class="nav-links"><a href="index.html">Início</a><a href="index.html#recursos">Recursos</a><a href="termos.html">Termos de Serviço</a><a class="nav-cta" href="https://discord.com/oauth2/authorize?client_id=1536520840546615467&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener">Adicionar ao Discord</a></nav>
+</div></header>
+<main class="legal"><div class="container">
+<div class="legal-top"><a href="index.html">← Voltar ao KeyFrame Boss</a><h1>Política de Privacidade</h1><div class="legal-meta">Última atualização: 25 de outubro de 2026</div></div>
+<article class="legal-card">
+<p>Esta Política de Privacidade explica como o KeyFrame Boss trata informações durante a utilização de seu bot e de seus recursos para servidores do Discord. O documento descreve as categorias de dados envolvidas, as finalidades de uso, o armazenamento, as possibilidades de compartilhamento e os meios de contato para solicitações relacionadas à privacidade.</p>
+<h2>1. Escopo e funcionamento do serviço</h2>
+<p>O KeyFrame Boss é um bot independente para Discord que oferece ferramentas configuráveis de administração de comunidades, atendimento e operação de lojas. Conforme os recursos utilizados, o serviço pode processar informações necessárias a tickets, vendas, estoque, moderação, registros, licenças, painéis, avisos, chamadas temporárias, recompensas e automações relacionadas.</p>
+<p>As funcionalidades habilitadas e os dados processados podem variar conforme as configurações escolhidas pelo administrador do servidor. O administrador é responsável por utilizar os recursos de forma adequada e por observar suas obrigações perante os membros de sua comunidade.</p>
+<h2>2. Categorias de informações que podem ser processadas</h2>
+<p>Conforme a utilização do bot, as informações processadas podem incluir:</p>
+<ul><li><strong>Identificadores do Discord:</strong> ID de usuário, ID do servidor, ID de canais, cargos e mensagens, além de nomes de usuário ou apelidos necessários ao funcionamento de recursos específicos.</li><li><strong>Configurações do servidor:</strong> preferências definidas pelo administrador, permissões, canais de logs, categorias de tickets, cargos, opções de atendimento e parâmetros dos recursos habilitados.</li><li><strong>Atendimentos e tickets:</strong> mensagens e respostas fornecidas pelos participantes, opções selecionadas em formulários, responsáveis pelo atendimento, horários e, quando configurado, transcrições.</li><li><strong>Registros comerciais:</strong> informações inseridas pelo administrador ou atendentes sobre vendas, produtos, valores, estoque, atendimentos, gastos, recompensas e avaliações.</li><li><strong>Licenças e utilização:</strong> dados técnicos necessários para administrar acesso a recursos, planos, limites e validade de licenças.</li><li><strong>Conteúdo enviado pelo usuário:</strong> textos, imagens, links e demais informações fornecidas voluntariamente ao utilizar comandos, formulários ou canais administrados pelo bot.</li></ul>
+<h2>3. Finalidades do tratamento</h2>
+<p>As informações são utilizadas na medida necessária para:</p>
+<ul><li>identificar servidores e usuários e responder às interações realizadas no Discord;</li><li>criar, organizar e registrar atendimentos, tickets e transcrições configuradas;</li><li>executar recursos de vendas, estoque, relatórios e registros comerciais solicitados pelo servidor;</li><li>aplicar configurações, permissões, planos e limites de utilização;</li><li>produzir os resultados solicitados por comandos e funcionalidades do bot;</li><li>manter a segurança, investigar falhas, prevenir abuso e garantir a integridade do serviço;</li><li>responder a solicitações de suporte e cumprir obrigações legais aplicáveis.</li></ul>
+<h2>4. Tickets, mensagens e transcrições</h2>
+<p>Os tickets podem conter mensagens e dados inseridos pelos participantes. Se o administrador habilitar a transcrição ou os logs, o conteúdo pertinente poderá ser registrado e enviado aos canais de Discord configurados para essa finalidade. O acesso a esses canais depende das permissões definidas pelo administrador e pelas ferramentas da plataforma.</p>
+<p>Os participantes devem evitar enviar senhas, códigos de autenticação, dados completos de cartões ou informações pessoais que não sejam necessárias ao atendimento. O administrador do servidor deve limitar o acesso aos canais de logs às pessoas que realmente precisem dessas informações.</p>
+<h2>5. Processamento de imagens pelo comando /ler</h2>
+<p>Quando o comando <strong>/ler</strong> estiver disponível e for utilizado, uma imagem enviada pelo usuário poderá ser processada por tecnologia de reconhecimento óptico de caracteres (OCR) para extrair texto e apresentar o resultado solicitado. O processamento depende da implementação e das bibliotecas utilizadas na versão em execução. Não se deve presumir que a imagem ou o texto extraído seja armazenado permanentemente, salvo se isso for informado expressamente no funcionamento do recurso ou nos registros aplicáveis.</p>
+<h2>6. Armazenamento, segurança e retenção</h2>
+<p>As configurações e determinados registros podem ser armazenados em arquivos e sistemas utilizados para executar o bot, administrar suas funcionalidades e preservar o funcionamento do serviço. A infraestrutura de hospedagem e seus procedimentos técnicos podem influenciar a localização e a retenção dos dados.</p>
+<p>São adotadas medidas técnicas e administrativas compatíveis com a natureza do serviço para reduzir o risco de acesso não autorizado, perda, alteração ou divulgação indevida. Nenhum sistema conectado à internet pode garantir segurança absoluta. Os dados são mantidos pelo período necessário à finalidade correspondente, à operação do serviço, à segurança e ao cumprimento de obrigações aplicáveis; cópias de segurança e registros técnicos podem permanecer durante seus respectivos ciclos de retenção.</p>
+<h2>7. Compartilhamento e serviços de terceiros</h2>
+<p>O funcionamento do bot depende do Discord e pode depender de serviços de hospedagem, bibliotecas, APIs ou outros provedores técnicos. As informações necessárias às interações são transmitidas ou processadas por essas plataformas de acordo com suas próprias condições e políticas.</p>
+<p>O conteúdo de tickets e os registros podem ser disponibilizados nos canais de logs definidos pelo administrador. O KeyFrame Boss não vende informações pessoais. Informações também poderão ser divulgadas quando isso for exigido por lei ou necessário para proteger direitos, segurança e integridade do serviço, na medida permitida pela legislação.</p>
+<h2>8. Integração Google/Gmail para confirmação de Pix</h2>
+<p>A integração para leitura de notificações bancárias do Gmail está em desenvolvimento e <strong>não deve ser considerada disponível para uso geral enquanto não for oficialmente lançada</strong>. Esta seção descreve a finalidade e as condições previstas para o caso de a funcionalidade ser implementada e disponibilizada.</p>
+<p>Se lançada, a função será opcional e exigirá que o administrador autorize expressamente uma conta Google por meio do fluxo oficial do Google. O KeyFrame Boss não solicitará a senha do Google. A permissão técnica prevista para a integração pode permitir acesso ao conteúdo de mensagens do Gmail, e não exclusivamente a notificações bancárias; por isso, a funcionalidade deverá ser utilizada apenas para a finalidade informada e estará sujeita às permissões e políticas do Google.</p>
+<p>O objetivo será localizar notificações relacionadas a transferências recebidas e utilizar somente as informações necessárias para comparar uma transação com uma compra pendente. A disponibilidade e o conteúdo das notificações variam entre bancos, tipos de conta e configurações. Uma mensagem de e-mail não constitui, por si só, garantia de liquidação de pagamento. Se não houver informações suficientes para associar a transação a uma compra específica com segurança, o sistema não deverá confirmar a compra automaticamente.</p>
+<p>Se a função for lançada, os tokens de autorização deverão ser protegidos, o administrador deverá conseguir desconectar a conta e os dados de autorização locais deverão ser excluídos quando a conexão for removida, na medida tecnicamente possível. Os dados acessados por essa integração não deverão ser vendidos, utilizados para publicidade ou tratados para finalidades incompatíveis com a confirmação de pagamentos solicitada. O administrador deverá conectar apenas uma conta que controla ou tem autorização legítima para utilizar.</p>
+<h2>9. Dados fornecidos em recursos comerciais</h2>
+<p>Os administradores e atendentes podem inserir informações sobre produtos, valores, clientes e atendimentos. Eles são responsáveis por garantir que possuem fundamento legítimo para registrar essas informações e por limitar o acesso interno aos dados. O KeyFrame Boss não é banco, instituição de pagamento ou intermediador financeiro e não mantém os valores das vendas realizadas pelos servidores dos usuários.</p>
+<h2>10. Direitos e solicitações de privacidade</h2>
+<p>Conforme a legislação aplicável, titulares podem solicitar confirmação do tratamento, acesso, correção, informações sobre compartilhamento, exclusão de dados quando cabível e o exercício de outros direitos previstos em lei. A possibilidade de atender a um pedido pode depender da identificação segura do solicitante, da natureza do dado e de obrigações de retenção ou limitações técnicas aplicáveis.</p>
+<p>Solicitações podem ser encaminhadas para <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a>. Para proteger as informações, poderá ser solicitado dado suficiente para confirmar a identidade e esclarecer o pedido. Não envie senhas ou códigos de autenticação por e-mail.</p>
+<h2>11. Responsabilidades do administrador e dos usuários</h2>
+<p>O administrador do servidor define as configurações, permissões, canais de logs e pessoas que podem acessar registros produzidos no servidor. Os usuários devem fornecer apenas informações pertinentes e evitar inserir dados excessivos ou sensíveis. O KeyFrame Boss não solicita senhas do Discord ou do Roblox para o funcionamento normal do bot.</p>
+<h2>12. Alterações desta Política</h2>
+<p>Esta Política poderá ser atualizada quando houver mudanças nas funcionalidades, nos procedimentos de tratamento, na infraestrutura ou na legislação aplicável. A data de atualização será indicada no início da página. Recomenda-se consultar esta página periodicamente.</p>
+<h2>13. Contato</h2>
+<p>Para questões relacionadas à privacidade e ao tratamento de dados, entre em contato pelo e-mail <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a>.</p>
+<footer><strong>KeyFrame Boss</strong><br>Contato: <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a><br><br><a href="termos.html">Termos de Serviço</a></footer></article>
+</div></main>
+</body></html>

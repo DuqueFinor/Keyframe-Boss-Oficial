@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Termos de Serviço — KeyFrame Boss</title><style>
+:root{
+  color-scheme:dark;
+  --bg:#050706;
+  --bg2:#080c09;
+  --panel:#0c1210;
+  --panel2:#101815;
+  --line:rgba(104,255,147,.15);
+  --line-strong:rgba(104,255,147,.32);
+  --text:#f2f7f3;
+  --muted:#aab8af;
+  --green:#63ff91;
+  --green2:#27e86b;
+  --lime:#b7ff24;
+  --shadow:0 24px 70px rgba(0,0,0,.42);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 12% 0%,rgba(40,255,103,.09),transparent 30%),
+    radial-gradient(circle at 90% 22%,rgba(137,255,20,.07),transparent 28%),
+    linear-gradient(180deg,var(--bg),#030504 72%);
+  color:var(--text);
+  font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+  overflow-x:hidden;
+}
+body:before{
+  content:"";
+  position:fixed;inset:0;pointer-events:none;z-index:-1;
+  opacity:.18;
+  background-image:
+    linear-gradient(rgba(99,255,145,.06) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(99,255,145,.06) 1px,transparent 1px);
+  background-size:64px 64px;
+  mask-image:linear-gradient(to bottom,black,transparent 80%);
+}
+a{color:inherit}
+.container{width:min(1120px,calc(100% - 40px));margin:auto}
+.nav{
+  position:sticky;top:0;z-index:20;
+  backdrop-filter:blur(18px);
+  background:rgba(3,5,4,.72);
+  border-bottom:1px solid rgba(255,255,255,.05);
+}
+.nav-inner{height:78px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none}
+.brand img{width:42px;height:42px;object-fit:cover;border-radius:12px;box-shadow:0 0 28px rgba(99,255,145,.18)}
+.brand-copy strong{display:block;font-size:15px;letter-spacing:-.02em}
+.brand-copy span{display:block;font-size:9px;color:var(--green);letter-spacing:.22em;font-weight:800;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:24px;font-size:13px;color:var(--muted);font-weight:700}
+.nav-links a{text-decoration:none;transition:.2s}
+.nav-links a:hover{color:var(--green)}
+.nav-cta{
+  padding:10px 15px;border-radius:10px;background:var(--green);color:#031008!important;
+  box-shadow:0 8px 28px rgba(99,255,145,.16);
+}
+.hero{padding:78px 0 52px}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:9px;color:var(--green);font-size:11px;font-weight:900;letter-spacing:.18em;text-transform:uppercase}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--green);box-shadow:0 0 18px var(--green)}
+h1{font-size:clamp(50px,7vw,84px);line-height:.94;letter-spacing:-.065em;margin:18px 0 22px}
+h1 .accent{color:var(--green);text-shadow:0 0 34px rgba(99,255,145,.12)}
+.hero p{max-width:650px;color:var(--muted);font-size:18px;margin:0 0 28px}
+.actions{display:flex;flex-wrap:wrap;gap:12px}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  min-height:48px;padding:0 19px;border-radius:12px;text-decoration:none;font-weight:900;font-size:13px;
+  border:1px solid rgba(255,255,255,.08);transition:transform .2s,border-color .2s,box-shadow .2s;
+}
+.btn:hover{transform:translateY(-2px)}
+.btn-primary{background:var(--green);color:#031008;border-color:var(--green);box-shadow:0 12px 34px rgba(99,255,145,.17)}
+.btn-secondary{background:rgba(255,255,255,.025);color:var(--text)}
+.btn-secondary:hover{border-color:var(--line-strong)}
+.hero-art{
+  position:relative;border-radius:26px;overflow:hidden;border:1px solid var(--line);
+  background:#050805;box-shadow:var(--shadow);
+}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(99,255,145,.07),transparent 38%,rgba(183,255,36,.06));pointer-events:none}
+.hero-art img{display:block;width:100%;aspect-ratio:2.5/1;object-fit:cover}
+.hero-badge{
+  position:absolute;left:18px;bottom:18px;padding:9px 12px;border-radius:10px;
+  background:rgba(3,7,4,.78);border:1px solid var(--line);backdrop-filter:blur(12px);
+  font-size:11px;font-weight:800;color:#dfffe8;
+}
+.section{padding:74px 0}
+.section-head{display:flex;align-items:end;justify-content:space-between;gap:25px;margin-bottom:26px}
+.kicker{color:var(--green);font-size:10px;letter-spacing:.18em;font-weight:900;text-transform:uppercase}
+h2{font-size:clamp(30px,4vw,46px);letter-spacing:-.045em;line-height:1.05;margin:8px 0 0}
+.section-head p{max-width:480px;color:var(--muted);margin:0}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{
+  position:relative;overflow:hidden;min-height:190px;padding:24px;border-radius:18px;
+  background:linear-gradient(145deg,rgba(16,24,21,.96),rgba(8,12,10,.96));
+  border:1px solid var(--line);box-shadow:0 18px 55px rgba(0,0,0,.18);
+}
+.card:before{
+  content:"";position:absolute;width:130px;height:130px;right:-65px;top:-65px;border-radius:50%;
+  background:rgba(99,255,145,.08);filter:blur(10px)
+}
+.card-num{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.14em}
+.card h3{margin:18px 0 7px;font-size:20px}
+.card p{margin:0;color:var(--muted);font-size:14px}
+.showcase{
+  display:grid;grid-template-columns:.8fr 1.2fr;gap:24px;align-items:stretch
+}
+.character{
+  min-height:520px;border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;position:relative
+}
+.character img{width:100%;height:100%;object-fit:cover;display:block}
+.character:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.48))}
+.showcase-panel{
+  padding:34px;border-radius:24px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,22,18,.97),rgba(6,9,8,.97));display:flex;flex-direction:column;justify-content:center
+}
+.showcase-panel p{color:var(--muted);max-width:620px}
+.checks{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin-top:18px}
+.check{padding:13px 14px;border:1px solid rgba(99,255,145,.1);background:rgba(99,255,145,.035);border-radius:12px;font-size:13px;font-weight:800}
+.check span{color:var(--green);margin-right:7px}
+.banner{
+  border-radius:24px;overflow:hidden;border:1px solid var(--line);background:#050805;box-shadow:var(--shadow)
+}
+.banner img{display:block;width:100%;height:auto}
+.docs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.doc{
+  padding:27px;border-radius:18px;background:linear-gradient(145deg,rgba(15,22,19,.96),rgba(7,10,9,.96));
+  border:1px solid var(--line);text-decoration:none;transition:.2s
+}
+.doc:hover{transform:translateY(-3px);border-color:var(--line-strong);box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.doc-label{color:var(--green);font-size:10px;font-weight:900;letter-spacing:.15em}
+.doc h3{margin:14px 0 7px;font-size:22px}
+.doc p{color:var(--muted);margin:0 0 18px;font-size:14px}
+.doc-link{font-size:13px;font-weight:900;color:#dfffe8}
+.final{
+  text-align:center;padding:82px 20px 90px;
+  position:relative
+}
+.final:before{content:"";position:absolute;width:440px;height:220px;left:50%;top:50%;transform:translate(-50%,-50%);background:rgba(99,255,145,.08);filter:blur(70px);pointer-events:none}
+.final>*{position:relative}
+.final h2{max-width:720px;margin:8px auto 13px}
+.final p{color:var(--muted);max-width:570px;margin:0 auto 25px}
+footer{border-top:1px solid rgba(255,255,255,.06);padding:26px 0 32px;color:#7f8d85;font-size:12px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;align-items:center}
+.footer-links{display:flex;gap:18px}.footer-links a{text-decoration:none}.footer-links a:hover{color:var(--green)}
+.legal{
+  padding:66px 0 90px
+}
+.legal-top{margin-bottom:26px}
+.legal-top a{color:var(--green);text-decoration:none;font-size:13px;font-weight:800}
+.legal-meta{color:#77857d;font-size:13px;margin-top:9px}
+.legal-card{
+  padding:34px;border-radius:22px;border:1px solid var(--line);
+  background:linear-gradient(145deg,rgba(14,21,18,.97),rgba(7,10,9,.97));
+  box-shadow:var(--shadow)
+}
+.legal-card h2{font-size:23px;margin:34px 0 10px}
+.legal-card h2:first-of-type{margin-top:0}
+.legal-card p,.legal-card li{color:#c2ccc6}
+.legal-card a{color:var(--green)}
+.legal-card footer{margin-top:42px}
+@media(max-width:900px){
+  .hero-grid,.showcase{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .character{min-height:400px}
+}
+@media(max-width:650px){
+  .container{width:min(100% - 28px,1120px)}
+  .nav-inner{height:70px}
+  .nav-links a:not(.nav-cta){display:none}
+  .hero{padding-top:50px}
+  h1{font-size:51px}
+  .hero p{font-size:16px}
+  .cards,.docs,.checks{grid-template-columns:1fr}
+  .section{padding:55px 0}
+  .section-head{display:block}
+  .section-head p{margin-top:12px}
+  .character{min-height:auto}
+  .footer-inner{display:block}
+  .footer-links{margin-top:10px}
+  .legal-card{padding:22px}
+}
+</style>  <link rel="icon" type="image/png" href="assets/favicon.png">
+</head>
+<body>
+<header class="nav"><div class="container nav-inner">
+<a class="brand" href="index.html"><img src="assets/logo-bot.png" alt="KeyFrame Boss"><span class="brand-copy"><strong>KeyFrame Boss</strong><span>OFICIAL</span></span></a>
+<nav class="nav-links"><a href="index.html">Início</a><a href="index.html#recursos">Recursos</a><a href="privacidade.html">Política de Privacidade</a><a class="nav-cta" href="https://discord.com/oauth2/authorize?client_id=1536520840546615467&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener">Adicionar ao Discord</a></nav>
+</div></header>
+<main class="legal"><div class="container">
+<div class="legal-top"><a href="index.html">← Voltar ao KeyFrame Boss</a><h1>Termos de Serviço</h1><div class="legal-meta">Última atualização: 25 de outubro de 2026</div></div>
+<article class="legal-card">
+<p>Estes Termos de Serviço regulam o acesso e a utilização do KeyFrame Boss. Ao adicionar, configurar ou utilizar o bot em um servidor do Discord, o administrador e os demais usuários devem observar as condições abaixo, as regras das plataformas envolvidas e a legislação aplicável.</p>
+<h2>1. Identificação e finalidade do serviço</h2>
+<p>O KeyFrame Boss é um bot independente para Discord, desenvolvido para apoiar a administração de comunidades e a operação de lojas e equipes. Conforme os recursos disponíveis e a configuração de cada servidor, suas funcionalidades podem incluir abertura e gerenciamento de tickets, atendimento, registros de vendas, controle de estoque, ferramentas relacionadas a pagamentos via Pix, moderação, avisos, painéis de cargos, chamadas temporárias, ausências da equipe, relatórios e outras automações.</p>
+<p>Nem todos os recursos estão necessariamente disponíveis em todos os planos ou em todos os momentos. A disponibilidade pode depender do plano contratado, das permissões concedidas ao bot, da configuração realizada pelo administrador e de serviços de terceiros.</p>
+<h2>2. Cadastro, permissões e responsabilidade do administrador</h2>
+<p>O administrador que adiciona o KeyFrame Boss ao servidor é responsável por revisar as permissões concedidas, configurar os recursos de acordo com a finalidade do servidor e informar à equipe e aos usuários as regras internas relevantes. O administrador também deve garantir que possui autorização para inserir dados, publicar conteúdos e utilizar os recursos ativados.</p>
+<p>Os usuários devem utilizar o bot de forma lícita e respeitosa. É proibido utilizar o serviço para fraude, golpes, spam abusivo, violação de direitos de terceiros, exploração de falhas, tentativa de acesso não autorizado ou qualquer atividade que prejudique o serviço, outros usuários ou terceiros.</p>
+<h2>3. Planos, licenças e limites de utilização</h2>
+<p>O KeyFrame Boss pode disponibilizar recursos gratuitos e recursos vinculados a uma assinatura ou licença Premium. Os benefícios, limites, preços, período de validade e condições aplicáveis são aqueles apresentados nos canais oficiais do serviço no momento da contratação.</p>
+<p>Uma licença, chave de acesso ou benefício Premium é destinado ao uso previsto na contratação e não deve ser compartilhado, revendido, transferido ou utilizado para contornar limites sem autorização expressa. O serviço pode aplicar limites técnicos ou comerciais para preservar a estabilidade e a utilização adequada dos recursos.</p>
+<h2>4. Pagamentos, cobranças e transações entre usuários</h2>
+<p>Quando houver cobrança por um plano ou licença do KeyFrame Boss, as condições de pagamento serão apresentadas antes da contratação. A confirmação de uma compra de licença depende da verificação do pagamento pelo responsável pelo serviço e dos procedimentos de compra informados ao cliente.</p>
+<p>Alguns recursos do bot podem ajudar administradores a organizar vendas próprias em seus servidores, inclusive por meio da geração de QR Code e código Pix Copia e Cola com os dados configurados pelo próprio administrador. Nesses casos, o administrador é responsável pela legitimidade da oferta, pela exatidão do valor e da chave Pix, pela entrega do produto ou serviço e pelo atendimento ao comprador. O KeyFrame Boss não é banco, instituição de pagamento ou intermediador financeiro e não recebe nem mantém os valores dessas vendas em nome do administrador.</p>
+<p>Qualquer recurso de confirmação automática de pagamento depende de sua disponibilidade efetiva, das integrações habilitadas e das informações fornecidas pelos serviços externos. A existência de uma notificação ou mensagem não garante, por si só, a liquidação de uma transação. Até que um recurso automático esteja oficialmente disponível, o usuário deve seguir o procedimento de confirmação indicado no bot.</p>
+<h2>5. Disponibilidade e dependência de terceiros</h2>
+<p>O funcionamento do KeyFrame Boss depende de infraestrutura técnica, conexão à internet e plataformas externas, incluindo o Discord e, quando aplicável, provedores de hospedagem, APIs e serviços de autenticação. Podem ocorrer interrupções, manutenção, falhas, atrasos ou alterações de terceiros fora do controle direto do responsável pelo bot.</p>
+<p>São realizados esforços razoáveis para manter o serviço operacional, mas não é prometida disponibilidade ininterrupta, ausência de erros ou compatibilidade permanente com todos os ambientes e integrações.</p>
+<h2>6. Atualizações e mudanças de funcionalidades</h2>
+<p>O KeyFrame Boss pode receber correções, melhorias, alterações de interface, mudanças de funcionamento ou novos recursos. Quando necessário por motivos técnicos, de segurança, legais ou operacionais, uma funcionalidade poderá ser ajustada, temporariamente suspensa ou descontinuada. Quando uma mudança afetar de forma relevante as condições de um plano pago, as informações aplicáveis serão comunicadas pelos canais oficiais, quando razoavelmente possível.</p>
+<h2>7. Conteúdo e dados inseridos pelos usuários</h2>
+<p>O usuário e o administrador do servidor são responsáveis pelos textos, imagens, links, informações de clientes, anúncios, produtos e demais conteúdos inseridos por meio do bot. Não devem ser enviados conteúdos ilícitos, enganosos, ofensivos de forma abusiva ou que infrinjam direitos de terceiros.</p>
+<p>O usuário deve evitar inserir senhas, códigos de autenticação, dados completos de cartões ou outras informações sensíveis que não sejam necessárias à finalidade do recurso utilizado. O tratamento de informações pelo KeyFrame Boss é descrito na <a href="privacidade.html">Política de Privacidade</a>.</p>
+<h2>8. Propriedade intelectual</h2>
+<p>O nome KeyFrame Boss, sua identidade visual, mascote, materiais e componentes próprios do serviço são protegidos pelas regras aplicáveis de propriedade intelectual. Salvo autorização expressa ou permissão legal, não é permitido copiar, modificar, redistribuir, comercializar ou apresentar esses materiais como próprios.</p>
+<h2>9. Suspensão e encerramento do acesso</h2>
+<p>O acesso a recursos ou licenças poderá ser suspenso ou encerrado em caso de fraude, violação destes Termos, tentativa de contornar limites, uso que coloque o serviço ou terceiros em risco, exigência legal ou necessidade de segurança. Sempre que viável e apropriado, poderão ser fornecidas informações sobre o motivo da medida e os meios de contato para esclarecimento.</p>
+<h2>10. Limites de responsabilidade</h2>
+<p>Na extensão permitida pela legislação aplicável, o responsável pelo KeyFrame Boss não garante que o serviço atenderá a todas as necessidades específicas de cada servidor, nem se responsabiliza por falhas, decisões ou atos de terceiros, configurações incorretas realizadas pelo administrador, conteúdos publicados pelos usuários, indisponibilidade de plataformas externas ou transações realizadas diretamente entre compradores e vendedores.</p>
+<p>Nada nestes Termos exclui direitos ou responsabilidades que não possam ser afastados pela legislação aplicável. O usuário deve manter registros próprios quando necessário e conferir informações financeiras diretamente no canal oficial da instituição responsável pela conta ou transação.</p>
+<h2>11. Relação com o Discord</h2>
+<p>O KeyFrame Boss é um serviço independente e não é patrocinado, endossado ou administrado pelo Discord. A utilização do bot também está sujeita aos termos, políticas e regras do Discord. O usuário deve consultar os documentos oficiais dessa plataforma para conhecer as condições aplicáveis.</p>
+<h2>12. Alterações destes Termos</h2>
+<p>Estes Termos podem ser atualizados para refletir alterações no serviço, nas funcionalidades, nas práticas operacionais ou na legislação. A data de atualização será indicada nesta página. O uso continuado do serviço após a publicação de uma nova versão estará sujeito aos termos atualizados, respeitados os direitos previstos em lei.</p>
+<h2>13. Contato</h2>
+<p>Dúvidas sobre estes Termos ou sobre o funcionamento do KeyFrame Boss podem ser encaminhadas para <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a>.</p>
+<footer><strong>KeyFrame Boss</strong><br>Contato: <a href="mailto:keyframebosssuporte@gmail.com">keyframebosssuporte@gmail.com</a><br><br><a href="privacidade.html">Política de Privacidade</a></footer></article>
+</div></main>
+</body></html>
